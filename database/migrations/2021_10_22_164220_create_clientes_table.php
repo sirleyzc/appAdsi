@@ -20,8 +20,8 @@ class CreateClientesTable extends Migration
             $table->string('nombres',50);
             $table->string('apellidos',50);
             $table->string('tel');
-            $table->string('dir',100);
-            $table->string('email',50);
+            $table->string('dir',200);
+            $table->string('email',200);
             $table->char('edo',1);
             $table->timestamps();
         });
