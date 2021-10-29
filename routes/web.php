@@ -20,6 +20,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Routes Categoria
 Route::post('/api/categoria/registrar', [CategoriaController::class, 'store']);
+Route::get('/api/categoria', [CategoriaController::class, 'index']);
+
+//Routes Marca
 Route::post('/api/marca/registrar', [MarcaController::class, 'store']);
+Route::get('/api/marca', [MarcaController::class, 'index']);
+
+//Routes Cliente
 Route::post('/api/cliente/registrar', [ClienteController::class, 'store']);
+Route::get('/api/cliente', [ClienteController::class, 'index']);
