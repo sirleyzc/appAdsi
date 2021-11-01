@@ -25,4 +25,18 @@ class MarcaController extends Controller
 
         $marca->save();
     }
+
+    public function update(Request $request)
+    {
+        $marca = Marca::findOrFail($request->id);
+        $marca->nombre = $request->marca;
+        $marca->edo = $request->estado;
+
+        $marca->save();
+    }
+
+    public function destroy(Request $request){
+        $marca = Marca::findOrFail($request->id);
+        $marca->delete();
+    }
 }
