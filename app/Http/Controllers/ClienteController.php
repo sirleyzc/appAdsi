@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use Inertia\Inertia;
 
 use Illuminate\Http\Request;
 
@@ -13,9 +14,10 @@ class ClienteController extends Controller
         $cliente = Cliente::select('id', 'tp_doc', 'num_doc', 'nombres', 'apellidos', 'tel', 'dir', 'email', 'edo')
         ->orderBy('nombres','asc')
         ->get();
-        return [
-            'cli'=>$cliente
-        ];
+        return Inertia::render('Cliente',['cli'=>$cliente]);
+        //return [
+        //    'cli'=>$cliente
+        //];
     }
 
     public function store(Request $request){

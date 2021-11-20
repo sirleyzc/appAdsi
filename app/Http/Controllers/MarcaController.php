@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Marca;
 
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MarcaController extends Controller
 {
@@ -13,9 +14,10 @@ class MarcaController extends Controller
         $marca = Marca::select('id','nombre','edo')
         ->orderBy('id')
         ->get();
-        return [
-            'mar'=>$marca
-        ];
+        return Inertia::render('Marca',['mar'=>$marca]);
+        //return [
+        //    'mar'=>$marca
+        //];
     }
 
     public function store(Request $request){

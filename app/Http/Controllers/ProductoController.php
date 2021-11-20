@@ -8,6 +8,16 @@ use App\Models\Producto;
 class ProductoController extends Controller
 {
     //
+    public function index()
+    {
+        $prod = Producto::join('categorias','productos.id_categ','categorias.id')
+        ->select('productos.nombre','productos.precio','productos.cant','categorias.nombre as Categoria')
+        ->get();
+        return [
+            'prod'=>$prod
+        ];
+    }
+
     public function store(Request $request){
         $prod = new Producto();
         $prod->cod_prod = $request->codProd;
